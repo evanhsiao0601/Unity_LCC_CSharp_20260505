@@ -4,6 +4,8 @@
 /// 認識不同的資料類型
 /// </summary>
 
+//修飾詞 宣告要建立一個類別(腳本) 類別名稱(腳本名稱) 最後須加上MonoBehaviour
+//MonoBehaviour能讓Unity的物件掛載腳本 沒有的話無法掛載
 public class Class_2_DataType : MonoBehaviour
 {
     //修飾詞語法：
@@ -25,4 +27,20 @@ public class Class_2_DataType : MonoBehaviour
     //布林值：儲存正與反 bool 他只有兩種值 true和false
     public bool isDead = false; //是否死亡=否
     public bool gameOver = true; //是否結束=是
+
+    //整數資料類型：
+    //byte：只有正數 0~255 大小8byte
+    public byte level = 16;
+    //uint：只有正數 比byte更大的數值 詳細參考微軟C#內建類型網頁 大小32byte
+    public uint coin = 9999;
+    //long：只有正數 比uint更大的數值 詳細參考微軟C#內建類型網頁 大小64byte
+    public long item = 3000;
+
+    //字串與字元類型：
+    //string：儲存多個字元 用雙引號
+    public string playername = "Evan";
+    //char：儲存一個字元 用單引號
+    public char a = 'a';
+
+    //溢位：當指定的預設數值超過數字資料類型的限制時會產生錯誤
 }
