@@ -74,7 +74,7 @@ public class Class_3_Operator : MonoBehaviour
         Debug.Log(10 / 3);
         Debug.Log(10 % 3); //餘數為先進行除法後再相減剩下的數字
 
-        //區域變數(Local Variable)：僅在此事件的包括內存取 所以不需要修飾詞
+        //區域變數(Local Variable)：僅在此事件的包括內存取 所以不需要修飾詞(public private)
         Debug.Log("<color=#f93>---算術運算子：區域變數---</color>");
         float numberA = 10;
         float numberB = 3;
@@ -86,6 +86,7 @@ public class Class_3_Operator : MonoBehaviour
         Debug.Log(numberA % numberB);
         #endregion
 
+        #region 比較運算子
         //2. 比較運算子：
         //大於(>) 小於(<->) 大於等於(>=) 小於等於(<=> 等於(==) 不等於(!=)
         Debug.Log("<color=#f93>---比較運算子---</color>");
@@ -98,6 +99,34 @@ public class Class_3_Operator : MonoBehaviour
         Debug.Log(numberC <= numberD);
         Debug.Log(numberC == numberD);
         Debug.Log(numberC != numberD);
+        #endregion
+
+        #region 布林值邏輯運算子
+        //3. 布林值邏輯運算子：
+        //邏輯否定 將布林值變成相反的值 true或false前面加!號
+        Debug.Log("<color=#f93>---布林值邏輯運算子---</color>");
+        //用區域變數的方式定義布林值
+        bool boolVarTrue = true, boolVarFalse = false;
+        Debug.Log(!boolVarTrue);
+        Debug.Log(!boolVarFalse);
+        //直接在Debug.log中顯示
+        Debug.Log(!true);
+        Debug.Log(!false);
+
+        Debug.Log("<color=#f93>---並且與或者---</color>");
+        //並且是&&  或者是||
+        //並且：比較兩個布林值　只要有一個false 結果就會是false 
+        Debug.Log(true && false);  //false
+        Debug.Log(false && true);  //false
+        Debug.Log(true && true);   //沒有false的話 結果就是true
+        Debug.Log(false && false);  //false
+        //或者：比較兩個布林值　只要有一個true 結果就會是ture 
+        Debug.Log(true || false);  //true
+        Debug.Log(false || true);  //true
+        Debug.Log(true || true);  //true
+        Debug.Log(false || false);  //false
+        #endregion
+
     }
 
 }
