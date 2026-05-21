@@ -37,7 +37,7 @@ namespace Evan
         }
         #endregion
 
-        //個別指定列舉的數值
+        #region 指定各列舉的數值
         private enum Item
         {
             None = 0, Coin = 1, Red = 10, Blue= 15, Chicken = 20
@@ -53,6 +53,35 @@ namespace Evan
         {
             //未指定編號 顯示的就是預設的道具
             Debug.Log((int)item);
-        }
-    }
+
+        #endregion
+
+            #region switch加列舉的用法 (可以在下拉式選單中選取 並把訊息顯示在Log上 但要重新執行撥放)
+            //switch + Tab兩次 >把switch on修改成列舉名稱> Enter兩次快速完成
+
+            //用switch抓出先前定義的變數item
+            switch (item)
+            {
+                case Item.None:
+                    Debug.Log("沒有道具");
+                    break;
+                case Item.Coin:
+                    Debug.Log("金幣");
+                    break;
+                case Item.Red:
+                case Item.Blue:
+                    Debug.Log("藥水道具");
+                    break;
+                case Item.Chicken:
+                    Debug.Log("食物道具");
+                    break;
+                default:
+                    Debug.Log("這不是道具");
+                    break;
+            }
+
+	}
+
+        #endregion
+}
 }
