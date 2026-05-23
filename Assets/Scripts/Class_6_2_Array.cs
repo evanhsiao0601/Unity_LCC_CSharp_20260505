@@ -6,7 +6,7 @@ namespace Evan
     /// </summary>
     public class Class_6_2_Array : MonoBehaviour
     {
-        //2*3*2 兩頁 一排三個 有兩排
+        //2*3*2 第幾頁數 第幾排 第幾個 第一個頁/排/個都是從0開始算 例如0123是四排
 
         //當碰到需要輸入大量且同類型的資料
         //不使用陣列的寫法：
