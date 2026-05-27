@@ -129,8 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 951440836}
   - component: {fileID: 951440835}
+  - component: {fileID: 951440837}
   m_Layer: 0
-  m_Name: "\u8AB2\u7A0B7_\u5C6C\u6027_\u975C\u614B"
+  m_Name: "\u8AB2\u7A0B7_1_\u5C6C\u6027_\u975C\u614B"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,6 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b408e01468b07c4f95e24944e3a18a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Evan.Class_7_Property
+  moveSpeed: 3.5
+  turnSpeed: 1.7
 --- !u!4 &951440836
 Transform:
   m_ObjectHideFlags: 0
@@ -163,6 +166,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &951440837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951440834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093d2ddf53a83b64a8ee28e23885903c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Evan.Class_7_1_GetSetData
+  property: {fileID: 951440835}
 --- !u!1 &1363279148
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,9 +271,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2029761963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2029761965}
+  - component: {fileID: 2029761964}
+  m_Layer: 0
+  m_Name: "\u8AB2\u7A0B7_2_\u5C6C\u6027_\u975C\u614B"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2029761964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029761963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533101b79c2cfca459747f02b4001714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Evan.Class_7_2_Static
+--- !u!4 &2029761965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029761963}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1363279151}
   - {fileID: 951440836}
+  - {fileID: 2029761965}
