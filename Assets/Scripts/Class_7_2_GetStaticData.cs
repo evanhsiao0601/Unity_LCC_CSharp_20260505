@@ -4,7 +4,7 @@ namespace Evan
     /// <summary>
     /// 練習取得和設定靜態資料
     /// </summary>
-    public class Class_7_2_GetSetData : MonoBehaviour
+    public class Class_7_2_GetStaticData : MonoBehaviour
     {
         //取得非靜態資料(成員)
         //先定義要獲得的資料類別變數(class_7_2) 透過變數取得非靜態資料(成員)
@@ -27,6 +27,22 @@ namespace Evan
             //呼叫靜態方法
             Class_7_2_Static.kick();
 
+        }
+
+        //取得史萊姆的資料
+        //需要在屬性面板上把畫面中的物件拖曳到Script裡定義的變數裡面(slimeGreen SlimeBlue)
+        public Class_7_2_Slime slimeGreen, slimeBlue;
+        private void Start()
+        {
+            //非靜態成員
+            slimeGreen.hp -= 10; slimeBlue.hp -= 10;
+            Debug.Log($"<color=#f3d>綠史萊姆 HP{slimeGreen.hp}</color>");
+            Debug.Log($"<color=#f3d>藍史萊姆 HP{slimeBlue.hp}</color>");
+
+            //靜態成員
+            //修改史萊姆移動速度
+            Class_7_2_Slime.moveSpeed = 3.5f;
+            Debug.Log($"<color=#f3d>史萊姆移動速度{Class_7_2_Slime.moveSpeed}</color>");
         }
 
     }

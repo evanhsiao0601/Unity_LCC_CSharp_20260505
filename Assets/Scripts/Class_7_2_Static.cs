@@ -1,3 +1,5 @@
+
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace Evan
@@ -8,6 +10,7 @@ namespace Evan
     public class Class_7_2_Static : MonoBehaviour
 
     {
+        #region 靜態和非靜態的變數 屬性與方法
         //變數 屬性 方法 三個是屬於成員
 
         //非靜態變數
@@ -30,16 +33,18 @@ namespace Evan
         {
             Debug.Log($"<color=#3f3>踢</color>");
         }
-
         private void Awake()
-        { 
-            //非靜態變數修改數值
+        {
+            //非靜態變數修改數值測試
             //inventoryWater = 7;
             //inventoryProp = 15;
             Debug.Log($"<color=#f31>藥水{inventoryWater}</color>");
             Debug.Log($"<color=#f31>藥水{inventoryProp}</color>");
 
         }
+        #endregion
+
+        #region 靜態與非靜態成員在Unity場景切換 保留和不保留資料
         private void Start()
         {
 
@@ -61,6 +66,25 @@ namespace Evan
                 SceneManager.LoadScene("課程7_1_屬性_靜態");
             }
         }
+        #endregion
+
+        #region 靜態與非靜態成員 存取資料限制
+        private float attack = 10; //非靜態成員
+        private static float mp = 100; //靜態成員
+        public void hit()
+        {
+            //非靜態方法內可以存取所有成員
+            Debug.Log($"<color=#3f3>靜態方法 攻擊</color>");
+            Debug.Log($"<color=#3f3>靜態魔力 {attack}</color>");
+            Debug.Log($"<color=#3f3>靜態魔力 {mp}</color>");
+        }
+        public void spell()
+        {
+            //靜態方法只能存取靜態成員 無法存取非靜態成員
+            Debug.Log($"<color=#3f3>靜態方法 魔法</color>");
+            Debug.Log($"<color=#3f3>靜態魔力 {mp}</color>");
+        } 
+        #endregion
 
     }
 

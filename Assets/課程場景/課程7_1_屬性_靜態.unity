@@ -540,6 +540,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Evan.Class_7_2_GetSetData
   class_7_2: {fileID: 2029761964}
+  slimeGreen: {fileID: 526077740}
+  slimeBlue: {fileID: 1005614044}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
