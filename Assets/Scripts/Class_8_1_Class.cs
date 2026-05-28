@@ -9,15 +9,18 @@ namespace Evan
     {
         private void Awake()
         {
-           
-            //NPC實體化並儲存在npcJack變數內
-            Class_8_1_NPC npcJack = new Class_8_1_NPC();
-            //因先前有Class_8_1_NPC(string _name) 所以能在(string _name)中命名
-            Class_8_1_NPC npcEvan = new Class_8_1_NPC("Evan");
 
-            //執行Class_8_1_NPC裡面npcName方法 在Log上顯示名字
+            //NPC實例化並儲存在npcJack變數內
+            //創建的實例會根據new Class_8_1_NPC("Jack")括號內參數的數量代入Class_8_1_NPC裡腳本相應的建構子
+            Class_8_1_NPC npcJack = new Class_8_1_NPC("Jack");
+            //因先前在Class_8_1_NPC類別腳本中 有Class_8_1_NPC(string _name) (string _dialogue)所以能在括號內填入兩個數值
+            Class_8_1_NPC npcEvan = new Class_8_1_NPC("Evan", "你好");
+
+            //執行Class_8_1_NPC腳本裡面npcName方法 在Log上顯示名字或對話
             npcJack.npcName();
             npcEvan.npcName();
+            npcJack.npcTalk();
+            npcEvan.npcTalk();
 
         }
     }
