@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Class_8_Practice_BossData
 {
-    private string bossName;
-    private string bossSkill;
-    private int bossHp;
+    public string bossName;
+    public string bossSkill;
+    public int bossHp;
 
     public Class_8_Practice_BossData(string _bossName, string _bossSkill, int _bossHp) 
     {
@@ -16,6 +16,7 @@ public class Class_8_Practice_BossData
 
     }
 
+    #region 不用定義方法就能顯示在Log內
     public void ShowBossName()
     {
         Debug.Log($"<color=#f393>-----頭目現身-----");
@@ -28,6 +29,7 @@ public class Class_8_Practice_BossData
     public void ShowBossHp()
     {
         Debug.Log($"<color=#f393>血量：{bossHp}");
-    }
+    } 
+    #endregion
 
 }

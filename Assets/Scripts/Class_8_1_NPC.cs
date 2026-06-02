@@ -5,6 +5,7 @@
 /// </summary>
 public class Class_8_1_NPC
 {
+    //建構子用途：在物件（或結構）產生時 快速幫它設定初始值 可大量建立遊戲中的NPC 武器 道具等
 
     private string name;
     private string dialogue;
@@ -16,7 +17,7 @@ public class Class_8_1_NPC
         Debug.Log($"<color=#f39>預設建構子</color>");
     }
 
-    //建構子：有參數 可修改賦予數值
+    //建構子：有參數 可之後填入數值
     //單一參數的建構子
     //此為簡寫
     public Class_8_1_NPC(string _name) => name = _name; 

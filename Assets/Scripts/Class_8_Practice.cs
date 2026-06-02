@@ -8,13 +8,18 @@ namespace Evan
             Class_8_Practice_BossData Boss1 = new Class_8_Practice_BossData("利維坦", "鑽石冰塵", 500000);
             Class_8_Practice_BossData Boss2 = new Class_8_Practice_BossData("哈迪斯", "虛空煉獄", 500000);
 
-            Boss1.ShowBossName();
-            Boss1.ShowBossSkill();
-            Boss1.ShowBossHp();
+            Debug.Log($"<color=#f393>{Boss1.bossName}, {Boss1.bossSkill}</color>");
+            Debug.Log($"<color=#f393>{Boss2.bossName}, {Boss2.bossSkill}</color>");
 
-            Boss2.ShowBossName();
-            Boss2.ShowBossSkill();
-            Boss2.ShowBossHp();
+            #region 不用喚回方法就能顯示在Log內
+            //Boss1.ShowBossName();
+            //Boss1.ShowBossSkill();
+            //Boss1.ShowBossHp();
+
+            //Boss2.ShowBossName();
+            //Boss2.ShowBossSkill();
+            //Boss2.ShowBossHp(); 
+            #endregion
         }
 
     }
