@@ -8,7 +8,7 @@ namespace Evan
         { 
 
                     float a = -999.321f;
-                    var floatToSbyte = Convert.ToSByte(a);
+                    sbyte floatToSbyte = (sbyte)a;
             LogWithColor.LogWithColors(floatToSbyte, "#f93");
         }
     }
