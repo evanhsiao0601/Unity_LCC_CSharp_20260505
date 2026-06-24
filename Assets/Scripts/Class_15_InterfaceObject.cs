@@ -22,27 +22,41 @@ namespace Evan
         public void Use();
     }
 
+    //道具使用完就消失的介面
+    public interface IDestory
+    {
+        public void Destory();
+    }
+
     //步驟2
-    //C#只能繼承一個父類別 但可以多重實作介面 (不同物品可以繼承同一個父類別)
+    //C#只能繼承一個父類別 但可以繼承多個介面
     public class Weapon : IUse 
     {
         public void Use()
         {
-            Debug.Log($"<color=#fa3>使用武器，施展武器技能<color/>");
+            Debug.Log($"<color=#fa3>使用武器，施展武器技能</color>");
         }
     }
-    public class Potions : IUse
+    public class Potions : IUse, IDestory
     {
         public void Use()
         {
-            Debug.Log($"<color=#fa3>使用藥水，恢復魔力<color/>");
+            Debug.Log($"<color=#fa3>使用藥水，恢復魔力</color>");
+        }
+        public void Destory()
+        {
+            Debug.Log($"<color=#fa3>使用完畢</color>");
         }
     }
-    public class Chest : IUse
+    public class Chest : IUse, IDestory
     {
         public void Use()
         {
-            Debug.Log($"<color=#fa3>使用寶箱，獲得隨機道具<color/>");
+            Debug.Log($"<color=#fa3>使用寶箱，獲得隨機道具</color>");
+        }
+        public void Destory()
+        {
+            Debug.Log($"<color=#fa3>使用完畢</color>");
         }
     }
 }
