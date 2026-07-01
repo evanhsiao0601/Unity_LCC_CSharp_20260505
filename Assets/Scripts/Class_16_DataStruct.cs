@@ -124,9 +124,102 @@ namespace Evan
             LogQueue<string>(player);
             #endregion
 
+            #region 泛型鏈結串列
+            //鏈結串列可以自由的決定將資料加到哪一個位置
+            //建立一個字串陣列 0是火球 1是冰錐
+            string[] skillsArray = new string[] { "火球", "冰錐" };
+            //建立一個名為skills的LinkedList<string> 並把skillsArray的資料放進去
+            LinkedList<string> skills = new LinkedList<string>(skillsArray);
+            LogLinkedList<string>(skills);
+
+            //把落雷加到字串陣列的最後
+            skills.AddLast("落雷");
+            LogLinkedList<string>(skills);
+            //把岩石加到字串陣列的最前
+            skills.AddFirst("岩石");
+            LogLinkedList<string>(skills);
+
+            //可以將資料加在另筆資料的前面或後面
+            //在火球後面加一個毒霧
+            LinkedListNode<string> skillFire = skills.Find("火球");
+            skills.AddAfter(skillFire, "毒霧");
+            ////在火球前面加一個順移
+            skills.AddAfter(skillFire, "順移");
+            LogLinkedList<string>(skills);
+            #endregion
+
+            #region 泛型自動排序集合
+            SortedSet<int> counts = new SortedSet<int> { 9, 2, 80, 1 };
+            LogSortedSet<int>(counts);
+            //加入的資料也會自動排序進去
+            counts.Add(77);
+            counts.Add(123);
+            LogSortedSet<int>(counts);
+            //顯示最大值 關鍵字Max
+            LogWithColor.LogWithColors($"最大值{counts.Max}", "#f33");
+            //顯示最小值 關鍵字Min
+            LogWithColor.LogWithColors($"最大值{counts.Min}", "#f33");
+
+            #region 泛型自動排序的交集和差集
+            SortedSet<int> lv = new SortedSet<int> { 7, 3, 75, 123, 5, 80 };
+            //交集和差集等會永久改變集合內的數字
+            //交集 關鍵字IntersectWith counts表單和lv表單中的相同的數字
+            counts.IntersectWith(lv); //結果會是80, 123 這兩個以外的數字皆會刪除
+            LogSortedSet<int>(counts);
+            //差集 關鍵字ExceptWith 可以理解為counts = counts - lv 剩下的數字
+            //如果lv有些數字是counts沒有的 例如7, 3, 75會直接忽略 只看counts既有的數字是否重疊
+            counts.ExceptWith(lv); //交集結束後剩下的80和123 會因為差集也有相同數字而都刪除變成空值
+            LogSortedSet<int>(counts);
+
+            //差集 counts1 = counts1 - couns2 剩下的數字
+            SortedSet<int> counts1 = new SortedSet<int> { 9, 2, 80, 1 };
+            SortedSet<int> counts2 = new SortedSet<int> { 9, 2 };
+            counts1.ExceptWith(counts2); //結果剩下80和1
+            LogSortedSet<int>(counts1);
+            #endregion
+            #endregion
+
+            #region 泛型字典
+            //需輸入鍵(key)和值(value)
+            Dictionary<int, string> deck = new Dictionary<int, string>()
+            {
+                {10, "真紅眼黑龍"}, {3, "落穴"}, {1, "黑魔導"}
+            };
+            LogDictionary<int, string>(deck);
+            //添加一筆資料
+            deck.Add(7, "死者甦醒");
+            //查詢是否有特定資料 查詢編號 關鍵字ContainsKey
+            LogWithColor.LogWithColors($"是否有編號3資料 {deck.ContainsKey(3)}", "#f33");
+            //查詢資料 關鍵字ContainsValue
+            LogWithColor.LogWithColors($"是否有羽毛掃資料 {deck.ContainsValue("羽毛掃")}", "#f33");
+            #endregion
+
+            #region 泛型自動排序清單 (結合自動排序和字典之功能)
+            SortedList<string, int> board = new SortedList<string, int>();
+            board.Add("Evan", 90); //鍵(string)不能重複 不然會報錯
+            board.Add("Andy", 85);
+            LogSortedList<string, int>(board);
+            #endregion
+
+            #region 泛型自動排序字典 (結合自動排序和字典之功能)
+            SortedDictionary<string, int> scores = new SortedDictionary<string, int>();
+            scores.Add("Evan", 90); //鍵(string)不能重複 不然會報錯
+            scores.Add("Andy", 85);
+            LogSortedDictionary<string, int>(scores);
+            #endregion
+
+            //自動排序清單和自動排序字典的差異：
+            //1. SortedList是使用陣列方式儲存 比較省記憶體
+            //2. SortedDictionary是使用樹狀結構儲存 比較占記憶體
+            //3. SortedList可以用索引值存取或讀取 即[0]
+            LogWithColor.LogWithColors($"排行榜第一筆資料{board.Keys[0]}", "#f93");
+            //4. SortedDictionary沒辦法使用索引值存取或讀取
+            //5. SortedList大量資料時比較占記憶體 如資料不須頻繁增減建議使用SortedList 反之使用SortedDictionary
         }
 
         #region 泛型堆疊
+
+        //建立一個使用Stack<T>方法 其參數為(Stack<T> stack)
         private void LogStack<T>(Stack<T> stack)
         {
             //逐次取出在stack內的每筆資料
@@ -136,7 +229,6 @@ namespace Evan
             }
         }
         #endregion
-
 
         #region 泛型佇列
         private void LogQueue<T>(Queue<T> queue)
@@ -148,7 +240,62 @@ namespace Evan
                 }
             }
 
-        } 
+        }
         #endregion
+
+        #region 泛型鏈結串列
+        //建立一個給泛型鏈結串列使用的方法
+        private void LogLinkedList<T>(LinkedList<T> linkedList)
+        {
+            //逐一執行linkedList內的資料
+            foreach (var item in linkedList)
+            {
+                LogWithColor.LogWithColors(item, "#7f7");
+            }
+        }
+        #endregion
+
+        #region 泛型自動排序集合
+        private void LogSortedSet<T>(SortedSet<T> set)
+        {
+            foreach (var item in set)
+            {
+                LogWithColor.LogWithColors(item, "#3f3");
+            }
+        }
+        #endregion
+
+        #region 泛型字典
+        private void LogDictionary<T, U>(Dictionary<T, U> dict)
+        {
+            foreach (var item in dict)
+            {
+                //鍵的關鍵字 Key 值的關鍵字 Value
+                LogWithColor.LogWithColors($"卡牌編號 {item.Key}", "#3f3");
+                LogWithColor.LogWithColors($"卡牌編號 {item.Value}", "#3f3");
+            }
+        }
+        #endregion
+
+        #region 泛型自動排序清單
+        private void LogSortedList<T, U>(SortedList<T, U> list)
+        {
+            foreach (var item in list)
+            {
+                LogWithColor.LogWithColors($"{item.Key}的分數{item.Value}", "#3f3");
+            }
+        }
+        #endregion
+
+        #region 泛型自動排序字典
+        private void LogSortedDictionary<T, U>(SortedDictionary<T, U> dict)
+        {
+            foreach (var item in dict)
+            {
+                LogWithColor.LogWithColors($"{item.Key}的分數{item.Value}", "#3f3");
+            }
+        }
+        #endregion
+
     }
 }
