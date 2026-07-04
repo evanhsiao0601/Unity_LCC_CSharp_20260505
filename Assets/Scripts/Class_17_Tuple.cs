@@ -33,11 +33,33 @@ namespace Evan
             UseCard(card2);
             //可直接帶入參數
             UseCard(("暴龍", 7, 199));
+
+            //宣告一個回傳值可存放的變數cardUpdate 暫時產生一張修改版 存放於此不影響原始的卡牌資料
+            //戰鬥結束後重新從原始資料建立
+            var cardUpdate = UpdateCardCost(card1);
+            LogWithColor.LogWithColors($"{cardUpdate.name} 消耗{cardUpdate.cost} 編號{cardUpdate.index}", "#f49");
+            //只有加上 card = UpdateCardCost(card); 才會覆寫原本卡牌的資料
+
+            //也可以用布林值判斷是否相同
+            LogWithColor.LogWithColors($"{cardUpdate == card1}", "#79f");
+            //也可以用布林值判斷是否不相同
+            LogWithColor.LogWithColors($"{cardUpdate != card1}", "#79f");
         }
 
+        //元組方法的參數 參數的型別及名稱(string name, int cost, int index)  card是前面整個參數的名稱
+        //元組一定要寫參數名稱
+        //這種寫法常用於卡牌 角色資料 道具資料等需要一次傳遞多個相關欄位的情境 比只傳一個值更方便
         private void UseCard((string name, int cost, int index) card)
         {
             LogWithColor.LogWithColors($"使用卡牌{card.name} 消耗{card.cost}", "#f49");
+        }
+
+        //更新卡牌狀態的方法
+        private (string name, int cost, int index) UpdateCardCost((string name, int cost, int index) card)
+        {
+            card.name = card.name + "降低消耗版本";
+            card.cost -= 1;
+            return card;
         }
     }
 
